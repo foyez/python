@@ -25,7 +25,7 @@ print(even_list) # [2, 4, 6, 8]
 
 num_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-even_list = [num for num_list if num % 2 == 0]
+even_list = [num for num in num_list if num % 2 == 0]
 
 print(even_list) # [2, 4, 6, 8]
 ```
