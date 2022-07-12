@@ -76,6 +76,48 @@ else:
 
 </details>
 
+3. Mapping list elements
+
+<details>
+<summary>View codes</summary>
+  
+```py
+# Using for loop
+
+num_list = [1, 2, 3, 4]
+
+even_squared = []
+for num in num_list:
+  if num % 2 == 0:
+    even_squared.append(num ** 2)
+  else:
+    even_squared.append(num)
+    
+print(even_squared) # [1, 4, 3, 16]
+```
+  
+```py
+# Using list comprehension
+
+num_list = [1, 2, 3, 4]
+
+even_squared = [num ** 2 if num % 2 == 0 else num for num in num_list]
+
+print(even_squared) # [1, 4, 3, 16]
+```
+
+```py
+# Using map and lambda function
+  
+num_list = [1, 2, 3, 4]
+
+even_squared = list(map(lambda num: num ** 2 if num % 2 == 0 else num, num_list))
+
+print(even_squared) # [1, 4, 3, 16]
+```
+
+</details>
+
 ### String
 
 1. Finding substring in a string
