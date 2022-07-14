@@ -160,6 +160,16 @@ dict = { 'name': 'zayan', 'age': 5, 'religion': 'Islam' }
 for value in dict.values():
     print(value) # zayan, 5, Islam
 ```
+  
+```py
+# Using comprehension
+  
+dict = { 'name': 'zayan', 'age': 5, 'religion': 'Islam' }
+
+new_dict = {key: value for key, value in dict.items() if key != 'age'}
+
+print(new_dict) # {'name': 'zayan', 'religion': 'Islam'}
+```
 
 ```py
 # membership tests (in)
