@@ -118,6 +118,76 @@ print(even_squared) # [1, 4, 3, 16]
 
 </details>
 
+### Dictionary
+
+1. Iterating dictionary
+
+<details>
+<summary>View codes</summary>
+  
+```py
+# Using for loop
+
+dict = { 'name': 'zayan', 'age': 5, 'religion': 'Islam' }
+
+for key in dict:
+    print(key, '->', dict[key]) # name -> zayan, age -> 5, religion -> Islam
+```
+
+```py
+# Using items() method
+
+dict = { 'name': 'zayan', 'age': 5, 'religion': 'Islam' }
+
+for key, value in dict.items():
+    print(key, '->', value) # name -> zayan, age -> 5, religion -> Islam
+```
+
+```py
+# Using keys() method
+
+dict = { 'name': 'zayan', 'age': 5, 'religion': 'Islam' }
+
+for key in dict.keys():
+    print(key, '->', dict[key]) # name -> zayan, age -> 5, religion -> Islam
+```
+
+```py
+# Using values() method
+
+dict = { 'name': 'zayan', 'age': 5, 'religion': 'Islam' }
+
+for value in dict.values():
+    print(value) # zayan, 5, Islam
+```
+
+```py
+# membership tests (in)
+
+dict = { 'name': 'zayan', 'age': 5, 'religion': 'Islam' }
+
+print('name' in dict.keys()) # True
+print('zayan' in dict.values()) # True
+print('village' in dict.keys()) # False
+```
+
+```py
+# Modifying Values and Keys
+
+dict = { 'name': 'zayan', 'age': 5, 'religion': 'Islam' }
+
+dict['name'] = 'Zayan' # modify value
+# del dict['age']
+
+for key in list(dict.keys()):  # Use a list instead of a view to delete a key
+    if key == 'age':
+        del dict[key]
+
+print(dict) # {'name': 'Zayan', 'religion': 'Islam'}
+```
+
+</details>
+
 ### String
 
 1. Finding substring in a string
@@ -130,7 +200,7 @@ print(even_squared) # [1, 4, 3, 16]
 
 txt = "Hello, World."
 
-index = txt.index("ell")
+index = txt.find("ell")
 
 if index != -1:
   print('found substring. index is ', index)
