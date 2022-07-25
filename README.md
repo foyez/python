@@ -6,7 +6,38 @@
 
 ### List
 
-1. Filtering a list
+1. Iterating a list
+
+<details>
+<summary>View codes</summary>
+
+```py
+# Using for loop
+
+num_list = [1, 2, 3, 4, 5]
+
+for num in num_list:
+  print(num, end=' ') # 1 2 3 4 5
+  
+for i in range(len(num_list)):
+  print(num_list[i], end=' ') # 1 2 3 4 5
+```
+  
+```py
+# Using while loop
+
+num_list = [1, 2, 3, 4, 5]
+
+i = 0
+
+while len(num_list) != i:
+    print(num_list[i], end=' ') # 1 2 3 4 5
+    i += 1
+```
+  
+</details>
+
+2. Filtering a list
 
 <details>
 <summary>View codes</summary>
@@ -46,7 +77,7 @@ print(even_list) # [2, 4, 6, 8]
 
 </details>
 
-2. Finding element in list
+3. Finding element in list
 
 <details>
 <summary>View codes</summary>
@@ -76,7 +107,7 @@ else:
 
 </details>
 
-3. Mapping list elements
+4. Mapping list elements
 
 <details>
 <summary>View codes</summary>
