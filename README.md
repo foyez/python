@@ -34,6 +34,22 @@ while len(num_list) != i:
     print(num_list[i], end=' ') # 1 2 3 4 5
     i += 1
 ```
+
+```py
+# Using recursion
+
+num_list = [1, 2, 3, 4, 5]
+
+def iterate_list(arr):
+    print(arr[0], end=' ') # 1 2 3 4 5
+    
+    if len(arr) < 2: return
+    # list[start_index(including) : end_index(not including) : step]
+    iterate_list(arr[1:])
+
+print(num_list[1::2]) # [2, 4]
+iterate_list(num_list)
+```
   
 </details>
 
