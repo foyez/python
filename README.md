@@ -21,6 +21,10 @@ for num in num_list:
   
 for i in range(len(num_list)):
   print(num_list[i], end=' ') # 1 2 3 4 5
+  
+for i, num in enumerate(num_list):
+  print(num, end=' ') # 1 2 3 4 5
+  print(i, end=' ') # 0 1 2 3 4
 ```
   
 ```py
@@ -246,8 +250,31 @@ print(dict) # {'name': 'Zayan', 'religion': 'Islam'}
 </details>
 
 ### String
+  
+1. Iterating a string
 
-1. Finding substring in a string
+<details>
+<summary>View codes</summary>
+
+```py
+# Using for loop
+
+str = 'hello'
+
+for ch in str:
+  print(ch, end=' ') # h e l l o
+  
+for i in range(len(str)):
+  print(str[i], end=' ') # h e l l o
+  
+for i, ch in enumerate(str):
+  print(ch, end=' ') # h e l l o
+  print(i, end=' ') # 0 1 2 3 4
+```
+  
+</details>
+
+2. Finding substring in a string
 
 <details>
 <summary>View codes</summary>
