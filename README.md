@@ -305,3 +305,20 @@ except:
 ```
   
 </details>
+  
+3. Split a string into a list
+
+<details>
+<summary>View codes</summary>
+
+```py
+# string.split(separator, maxsplit)
+# Default separator is any whitespace
+# Default value is -1, which is "all occurrences
+  
+str = "apple#banana#cherry"
+list = str.split("#", 1)
+print(list) # ['apple', 'banana#cherry']
+```
+  
+</details>
