@@ -321,4 +321,11 @@ list = str.split("#", 1)
 print(list) # ['apple', 'banana#cherry']
 ```
   
+```py
+# split string to characters
+str = "apple"
+ch = list(str)
+print(ch) # ['a', 'p', 'p', 'l', 'e']
+```
+  
 </details>
