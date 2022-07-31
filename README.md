@@ -25,6 +25,9 @@ for i in range(len(num_list)):
 for i, num in enumerate(num_list):
   print(num, end=' ') # 1 2 3 4 5
   print(i, end=' ') # 0 1 2 3 4
+  
+for i in range(2, len(num_list)):
+  print(num_list[i], end=' ') # 3 4 5
 ```
   
 ```py
