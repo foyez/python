@@ -4,6 +4,22 @@
 
 ## Python Tips/Tricks
 
+### Hello World
+
+<details>
+<summary>View codes</summary>
+
+```py
+def greeting(name: str) -> None:
+    '''Takes in a string name, prints greeting message'''
+    print(f"Hello, {name}") # print greeting
+
+if __name__ == '__main__':
+    greeting('Bangladesh')
+```
+    
+</details>
+
 ### List
 
 1. Iterating a list
