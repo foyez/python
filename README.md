@@ -2,8 +2,6 @@
 
 [Python Playground](https://www.programiz.com/python-programming/online-compiler/)
 
-## Python Tips/Tricks
-
 ### Hello World
 
 <details>
@@ -16,6 +14,47 @@ def greeting(name: str) -> None:
 
 if __name__ == '__main__':
     greeting('Bangladesh')
+```
+    
+</details>
+
+### Primitive Types
+
+> In Python everything is an object-this includes `Booleans`, `integers`, `characters`, etc.
+
+Python has a number of built-in types: numerics (e.g., integer), sequences (e.g., list), mappings (e.g., dict), as well as classes, instances and exceptions. All instances of these types are objects.
+
+<details>
+<summary>View contents</summary>
+
+#### Bitwise operators
+    
+| Operator | Description         | Description |
+| -------- | ------------------- | ----------- |
+| &        | Bitwise AND         | x & y       |
+| \|       | Bitwise OR          | x \| y      |
+| ~        | Bitwise NOT         | ~x          |
+| ^        | Bitwise XOR         | x ^ y       |
+| >>       | Bitwise right shift | x >>        |
+| <<       | Bitwise left shift  | x <<        |
+    
+```py
+a = 10 # = 1010 (Binary)
+b = 4  # =  0100 (Binary)
+
+a & b # = 1010 & 0100 = 0000 = 0 (Decimal)
+a | b # = 1010 & 0100 = 1110 = 14 (Decimal)
+~a    # = ~1010 = -(1010 + 1) = -1011 = -11 (Decimal)
+a ^ b # = 1010 ^ 0100 = 1110 = 14 (Deciaml)
+    
+# Shift Operators
+    
+x = 10 # = 0000 1010 (Binary)
+x >> 1 # = 0000 0101 = 5
+    
+y = 5  # = 0000 0101 (Binary)
+y << 1 # = 0000 1010 = 10
+y << 2 # = 0001 0100 = 20 
 ```
     
 </details>
