@@ -387,3 +387,18 @@ print(ch) # ['a', 'p', 'p', 'l', 'e']
 ```
   
 </details>
+    
+4. Built-in functions
+    
+<details>
+<summary>View codes</summary>
+
+```py
+str = "Apple1 "
+    
+srt.lower() # "apple1 "
+str[2].isalnum() # True
+str[::-1] # " 1elppa"
+```
+    
+</details>
