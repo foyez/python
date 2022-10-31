@@ -114,8 +114,22 @@ iterate_list(num_list)
 ```
   
 </details>
+    
+2. Backward/Reverse iteration of a list
+    
+<details>
+<summary>View codes</summary>
+    
+```py
+num_list = [1, 2, 3, 4, 5]
 
-2. Filtering a list
+for num in range(len(num_list) - 1, -1, -1):
+  print(num_list[i], end=' ') # 5 4 3 2 1
+```
+    
+</details>
+
+3. Filtering a list
 
 <details>
 <summary>View codes</summary>
@@ -155,7 +169,7 @@ print(even_list) # [2, 4, 6, 8]
 
 </details>
 
-3. Finding element in list
+4. Finding element in list
 
 <details>
 <summary>View codes</summary>
@@ -185,7 +199,7 @@ else:
 
 </details>
 
-4. Mapping list elements
+5. Mapping list elements
 
 <details>
 <summary>View codes</summary>
