@@ -413,6 +413,11 @@ str = "Apple1 "
 srt.lower() # "apple1 "
 str[2].isalnum() # True
 str[::-1] # " 1elppa"
+
+# character to ASCII or ASCII to character
+ord('a') # 97
+chr(97) # 'a'
+chr(ord('a') + 3) # 'd'
 ```
     
 </details>
