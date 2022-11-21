@@ -240,6 +240,78 @@ print(even_squared) # [1, 4, 3, 16]
 ```
 
 </details>
+  
+6. list operations
+  
+<details>
+<summary>View codes</summary>
+    
+```py
+num_list = [1, 2]
+  
+# access to last element
+num_list[-1] # 2
+  
+# multifly a list
+num_list * 3 # [1,2,1,2,1,2]
+  
+# add 3 at the end
+num_list.append(3) # [1, 2, 3]
+  
+# concate or merge two list
+num_list += [4] # [1, 2, 3, 4]
+  
+# add 5 and 6 at the end
+num_list.extend([4, 5]) # [1, 2, 3, 4, 4, 5]
+  
+# add 100 at 2nd index
+num_list.insert(2, 100) # [1, 2, 100, 3, 4, 4, 5]
+  
+# remove 4 from first occurrence
+num_list.remove(4) # [1, 2, 100, 3, 4, 5]
+  
+# remove 3rd and last element using pop. parameter is index number which is optional.
+num_list.pop(2) # [1, 2, 3, 4, 5]
+num_list.pop() # [1, 2, 3, 4]
+  
+# slice a list: [start_index:end_index], end_index is exclusive
+num_list[1:] # [2, 3, 4]
+num_list[:2] # [1, 2]
+num_list[1:3] # [2, 3]
+  
+# reverse a list
+num_list[::-1]     # does not modify the original list
+num_list.reverse() # modifies the original list
+  
+# length, minimum, maximum and count
+num_list = [1, 2, 5, 5, 8]
+len(num_list) # 4
+min(num_list) # 1
+max(num_list) # 8
+num_list.count(5) # 2
+  
+# find index of the first occurence. if element is not found, raise a ValueError exception
+num_list = [1,2,10,4,5]
+num_list.index(10)       # searches in the whole list
+num_list.index(10, 0, 2) # searches from 0th to 2nd position
+  
+# sort a list using sort() and sorted(). sort() modify the list where sorted() doesn't modify the list
+# sort in increasing order
+sorted(num_list)
+num_list.sort()
+  
+# sort in decreasing order
+sorted(num_list, reverse=True) 
+num_list.sort(reverse=True)
+  
+# sorted using function
+cars = ['Ford', 'Mitsubishi', 'BMW', 'VW']
+cars.sort(key=lambda car: len(car)) # sorted by car length
+sorted(cars, key=lambda car: len(car))
+# ['VW', 'BMW', 'Ford', 'Mitsubishi']
+```
+  
+</details>
 
 ### Dictionary
 
