@@ -18,6 +18,270 @@ if __name__ == '__main__':
     
 </details>
 
+### Reserved Words (Keywords)
+
+<details>
+<summary>View details</summary>
+
+1. False
+2. None
+3. True
+
+```py
+is_valid = True
+is_old = False
+val = None
+```
+
+4. and
+5. or
+6. not
+
+```py
+a = True
+b = False
+
+print(a and b) # False
+print(a or b) # True
+print(not a) # False
+```
+
+7. import
+8. from
+9. as
+
+```py
+from math import sqrt as square_root
+
+print(square_root(16)) # 4.0
+```
+
+10. assert
+
+```py
+# assert is used to check if a condition is True.
+# If it's not, it raises an AssertionError with an optional error message.
+
+x = 5
+assert x > 0, "x must be positive"
+```
+
+11. async
+12. await
+13. def
+
+```py
+# async is used to define a coroutine function, which can be paused and resumed.
+# await is used to suspend execution of an async function until the result is available.
+
+import asyncio
+
+async def example():
+  await asyncio.sleep(1)
+  print("Hello")
+
+asyncio.run(example())
+```
+
+14. break
+15. continue
+16. for
+17. if
+18. elif
+19. else
+
+```py
+for i in range(10):
+  if i % 2 == 0:
+    print("even:", i)
+  elif i == 3:
+    continue
+  elif i == 9:
+    break
+  else:
+    print("odd:", i)
+
+# Outputs:
+# even: 0
+# odd: 1
+# even: 2
+# even: 4
+# odd: 5
+# even: 6
+# odd: 7
+# even: 8
+```
+
+20. class
+
+```py
+class MyClass:
+  def __init__(self, x):
+    self.x = x
+
+mc = MyClass(10)
+```
+
+21. del
+
+```py
+# del is used to delete items from lists, slices of lists, variables, or even attributes from objects.
+
+my_list = [1, 2, 3]
+my_dict = {"name": "Ali", "age": 20}
+
+del my_list[0]
+del my_dict["name"]
+
+print(my_list) # [2, 3]
+print(my_dict) # {age: 20}
+```
+
+22. except
+23. finally
+
+```py
+# except is used in exception handling to catch and handle exceptions.
+# It specifies one or more exception types that the except block will handle.
+
+try:
+  f = open("my_file.txt")
+except FileNotFoundError:
+  print("File not found")
+finally:
+  # Ensure the file is always closed, even if an exception occurs
+  f.close()
+```
+
+24. global
+
+```py
+# global is used inside functions to declare that a variable is global, meaning it belongs to the global scope.
+
+x = 10
+
+def my_func():
+  global x
+  x = 20
+
+my_func()
+print(x) # 20
+```
+
+25. in
+
+```py
+# in is used to check if a value exists in a sequence such as a list, tuple, string or dictionary.
+
+my_list = [1, 2, 3]
+my_tuple = (1, 2, 3)
+my_str = "Hello"
+my_dict = {"a": 1}
+
+print(3 in my_list) # True
+print(2 in my_tuple) # True
+print("h" in my_str) # False
+print("a" in my_dict) # True
+```
+
+26. is
+
+```py
+# is is used to test if two variables refer to the same object in memory.
+x = [1, 2]
+y = [1, 2]
+z = True
+
+print(x is y) # False
+print(z is True) # True
+```
+
+27. lambda
+
+```py
+# lambda is used to create small anonymous functions.
+
+square = lambda x: x * x
+print(square(5)) # 25
+```
+
+28. nonlocal
+
+```py
+# nonlocal is used inside nested functions to declare that a variable belongs to an outer (but not global) scope.
+
+def outer_func():
+  x = 10
+  def inner_func():
+    nonlocal x
+    x = 20
+  inner_func()
+  print(x) # 20
+outer_func()
+```
+
+29. pass
+
+```py
+# pass is a null operation. It is used when a statement is required syntactically
+# but you do not want any command or code to execute.
+
+if 10 > 5:
+  pass
+```
+
+30. raise
+31. return
+
+```py
+# raise is used to raise an exception manually.
+
+def check_positive(x):
+  if x < 0:
+    raise ValueError("x should be a positive number")
+  return x
+
+check_positive(10)
+check_positive(-1)
+```
+
+32. while
+
+```py
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+```
+
+33. with
+
+```py
+# with is used to simplify exception handling by ensuring that clean-up code is executed, even if an error occurs.
+
+with open("myfile.txt", "r") as file:
+  data = file.read()
+  print(data)
+```
+
+34. yield
+
+```py
+# yield is used inside a function like a return statement but it returns a generator.
+#  a generator is a special type of iterator that allows you to iterate over a sequence of values lazily,
+# generating values on-the-fly rather than storing them in memory all at once.
+
+def generator():
+  for i in range(5):
+    yield i
+
+gen = generator()
+for value in gen:
+  print(value)
+```
+
+</details>
+
 ### Primitive Types
 
 > In Python everything is an object-this includes `Booleans`, `integers`, `characters`, etc.
