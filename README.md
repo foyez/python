@@ -1279,16 +1279,167 @@ print(ch) # ['a', 'p', 'p', 'l', 'e']
 <summary>View codes</summary>
 
 ```py
-str = "Apple1 "
-    
-srt.lower() # "apple1 "
-str[2].isalnum() # True
-str[::-1] # " 1elppa"
-
 # character to ASCII or ASCII to character
+str = "Apple1 "
 ord('a') # 97
 chr(97) # 'a'
 chr(ord('a') + 3) # 'd'
+
+# Concatenation (+)
+str1 = "Hello"
+str2 = "World"
+result = str1 + " " + str2
+print(result)  # Output: Hello World
+
+# Multiplication (*)
+str1 = "abc"
+result = str1 * 3
+print(result)  # Output: abcabcabc
+
+# Substring
+my_str = "Hello, World!"
+my_str[7:] # World!
+my_str[-6:] # World!
+my_str[0:5] # Hello
+my_str[::-1] # !dlroW ,olleH
+
+# Length
+my_str = "Hello, World!"
+len(my_str) # 13
+
+# count(): Returns the number of occurrences of a substring in the string.
+my_string = "apple banana apple orange apple"
+count = my_string.count("apple")
+print(count)  # Output: 3
+
+# Case Conversion
+my_str = "Hello, World!"
+my_str.lower()  # hello, world!
+my_str.upper()  # HELLO, WORLD!
+
+# Strip: Removes leading and trailing whitespace from a string
+my_string = "  Hello, World!  "
+my_string.strip()  # Hello, World!
+
+# lstrip(): Removes leading whitespace (or specified characters) from the beginning of the string.
+my_string = "   hello"
+print(my_string.lstrip())  # Output: 'hello'
+
+# rstrip(): Removes trailing whitespace (or specified characters) from the end of the string.
+my_string = "hello   "
+print(my_string.rstrip())  # Output: 'hello'
+
+# Split: Splits a string into a list of substrings based on a delimiter.
+my_string = "apple,banana,orange"
+fruits = my_string.split(",")
+print(fruits)  # Output: ['apple', 'banana', 'orange']
+
+# Join: Joins the elements of an iterable into a string using a separator.
+fruits = ['apple', 'banana', 'orange']
+my_string = ",".join(fruits) # apple,banana,orange
+
+# Replace: Replaces occurrences of a substring within a string.
+my_string = "Hello, World!"
+new_string = my_string.replace("World", "Universe")
+print(new_string)  # Output: Hello, Universe!
+
+# Find: Returns the lowest index of the substring if found in the string. Returns -1 if not found.
+my_string = "Hello, World!"
+index = my_string.find("World")
+print(index)  # Output: 7
+
+# Count: Returns the number of occurrences of a substring in the string.
+my_string = "apple banana apple orange apple"
+count = my_string.count("apple")
+print(count)  # Output: 3
+
+# StartsWith and EndsWith: Checks if the string starts or ends with a specified substring.
+my_string = "Hello, World!"
+print(my_string.startswith("Hello"))  # Output: True
+print(my_string.endswith("!"))       # Output: True
+
+# Title: Returns a string with the first character of each word capitalized.
+my_string = "hello world"
+title_case = my_string.title()
+print(title_case)  # Output: Hello World
+
+# Capitalize: Returns a string with the first character capitalized.
+my_string = "hello world"
+capitalized = my_string.capitalize()
+print(capitalized)  # Output: Hello world
+
+# Encode and Decode: Encodes and decodes the string using a specified encoding.
+my_string = "Hello, World!"
+encoded = my_string.encode('utf-8')
+print(encoded)  # Output: b'Hello, World!'
+decoded = encoded.decode('utf-8')
+print(decoded)  # Output: Hello, World!
+
+# Format: Formats the string with placeholders.
+name = "Alice"
+age = 30
+formatted_string = "My name is {} and I am {} years old.".format(name, age)
+print(formatted_string)  # Output: My name is Alice and I am 30 years old.
+
+# format_map(): Similar to format(), but accepts a mapping (dictionary-like object) as an argument.
+person = {'name': 'Bob', 'age': 25}
+formatted_string = "My name is {name} and I am {age} years old.".format_map(person)
+print(formatted_string)  # Output: My name is Bob and I am 25 years old.
+
+# isdigit(): Checks if all characters in the string are digits.
+my_string = "123"
+print(my_string.isdigit())  # Output: True
+
+# isalpha(): Checks if all characters in the string are alphabetic.
+my_string = "abc"
+print(my_string.isalpha())  # Output: True
+
+# islower(): Checks if all characters in the string are lowercase.
+my_string = "hello"
+print(my_string.islower())  # Output: True
+
+# isupper(): Checks if all characters in the string are uppercase.
+my_string = "HELLO"
+print(my_string.isupper())  # Output: True
+
+# istitle(): Checks if the string is in titlecase.
+my_string = "Hello World"
+print(my_string.istitle())  # Output: True
+
+# isnumeric(): Checks if all characters in the string are numeric.
+my_string = "123"
+print(my_string.isnumeric())  # Output: True
+
+# isalnum(): Checks if all characters in the string are alphanumeric.
+my_string = "abc123"
+print(my_string.isalnum())  # Output: True
+
+# isascii(): Returns True if all characters in the string are ASCII, False otherwise.
+my_string = "Hello, World!"
+print(my_string.isascii())  # Output: True
+
+# isdecimal(): Returns True if all characters in the string are decimals, False otherwise.
+my_string = "123"
+print(my_string.isdecimal())  # Output: True
+
+# zfill(): Pads a numeric string with zeros on the left to fill a field of the specified width.
+my_string = "42"
+print(my_string.zfill(5))  # Output: '00042'
+
+# index(): Returns the lowest index of the substring in the string, or raises a ValueError if the substring is not found.
+my_string = "apple banana orange"
+index = my_string.index("banana")
+print(index)  # Output: 6
+
+# rindex(): Returns the highest index of the substring in the string, or raises a ValueError if the substring is not found.
+my_string = "apple banana apple orange apple"
+index = my_string.rindex("apple")
+print(index)  # Output: 28
+
+# rfind(): Returns the highest index of the substring in the string, or -1 if the substring is not found.
+my_string = "apple banana apple orange apple"
+index = my_string.rfind("apple")
+print(index)  # Output: 28
 ```
     
 </details>
