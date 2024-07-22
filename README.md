@@ -1063,6 +1063,9 @@ cars = ['Ford', 'Mitsubishi', 'BMW', 'VW']
 cars.sort(key=lambda car: len(car)) # sorted by car length
 sorted(cars, key=lambda car: len(car))
 # ['VW', 'BMW', 'Ford', 'Mitsubishi']
+
+people = [{'age: 5, 'name': 'Abul'}, {'age': 10, 'name': 'Abul'}]
+sorted(people, key=lambda person: person['age']) # sorted by age
 ```
   
 </details>
