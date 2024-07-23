@@ -1066,6 +1066,16 @@ sorted(cars, key=lambda car: len(car))
 
 people = [{'age: 5, 'name': 'Abul'}, {'age': 10, 'name': 'Abul'}]
 sorted(people, key=lambda person: person['age']) # sorted by age
+
+# sort by multiple criteria - return tuple
+people = [
+    {"name": "John", "age": 30},
+    {"name": "Jane", "age": 25},
+    {"name": "Dave", "age": 30},
+    {"name": "Alice", "age": 25},
+]
+# Sort by age and then by name
+sorted_people = sorted(people, key=lambda person: (person["age"], person["name"]))
 ```
   
 </details>
