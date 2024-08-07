@@ -1014,6 +1014,7 @@ num_list.append(3) # [1, 2, 3]
   
 # concate or merge two list
 num_list += [4] # [1, 2, 3, 4]
+new_list = [0] + num_list # [0, 1, 2, 3, 4]
   
 # add 5 and 6 at the end
 num_list.extend([4, 5]) # [1, 2, 3, 4, 4, 5]
