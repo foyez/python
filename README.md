@@ -1564,13 +1564,25 @@ my_set.update([5, 6])
 
 print(my_set)  # Output: {1, 2, 3, 4, 5, 6}
 
-# Removing an element
+# Removing an element. Raises a KeyError if the element is not in the set.
 my_set.remove(3)
 
 # Removing an element if it exists
-my_set.discard(6)
+my_set.discard(6) # # no error if 4 is missing
 
-print(my_set)  # Output: {1, 2, 4, 5}
+# pop() - Removes and returns an arbitrary element (since sets are unordered).
+s = {1, 2, 3}
+x = s.pop()
+print(x)  # could be 1, 2, or 3
+
+# Clear or delete entire set
+s = {1, 2, 3}
+s.clear()
+print(s)  # set()
+
+s = {1, 2, 3}
+del s
+# Now `s` no longer exists
 
 # Set to list
 my_set = {1, 2, 3, 4, 5}
