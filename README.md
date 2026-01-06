@@ -26,9 +26,6 @@ def greeting(name: str) -> None:
     
     Args:
         name: The name to greet.
-        
-    Real-world use: This pattern is used in email systems, chatbots,
-    and customer service applications.
     """
     print(f"Hello, {name}!")
 
@@ -68,13 +65,20 @@ Python has 35 reserved keywords that cannot be used as variable names.
 <details>
 <summary><strong>View contents</strong></summary>
 
-### 1. Boolean Keywords (True, False, None)
+### 1. Boolean Keywords (`True`, `False`, `is`, `None`)
+
+#### Explanation
+
+* `True` and `False` represent boolean values.
+* `None` represents the absence of a value.
+* `is` checks object identity (not equality).
+* Commonly used in conditions, return values, and default states.
 
 <details>
 <summary><strong>View contents</strong></summary>
 
 ```python
-# Real-world example: User authentication system
+# User authentication system
 def authenticate_user(username: str, password: str) -> bool:
     """
     Authenticates a user login attempt.
@@ -99,13 +103,19 @@ else:
 
 </details>
 
-### 2. Logical Operators (and, or, not)
+### 2. Logical Operators (`and`, `or`, `not`)
+
+#### Explanation
+
+* `and` → True if **both** conditions are true
+* `or` → True if **at least one** condition is true
+* `not` → Inverts a boolean value
 
 <details>
 <summary><strong>View contents</strong></summary>
 
 ```python
-# Real-world example: E-commerce discount eligibility
+# E-commerce discount eligibility
 def can_apply_discount(user_age: int, is_member: bool, cart_total: float) -> bool:
     """
     Determines if a user qualifies for a discount.
@@ -119,22 +129,29 @@ def can_apply_discount(user_age: int, is_member: bool, cart_total: float) -> boo
     
     return qualifies_for_discount
 
-# Test cases
-print(can_apply_discount(70, False, 60))   # True (senior, enough spending)
-print(can_apply_discount(30, True, 60))    # True (member, enough spending)
-print(can_apply_discount(30, False, 60))   # False (not qualified)
-print(can_apply_discount(70, True, 30))    # False (not enough spending)
+eligible_for_discount = can_apply_discount(70, False, 60) # True
+
+if not eligible_for_discount:
+    print("Pay full payment")
+else:
+    print("Pay 5% less")
 ```
 
 </details>
 
-### 3. Import Keywords (import, from, as)
+### 3. Import Keywords (`import`, `from`, `as`)
+
+#### Explanation
+
+* `import` loads a module
+* `from` imports specific items
+* `as` creates an alias (shorter or clearer name)
 
 <details>
 <summary><strong>View contents</strong></summary>
 
 ```python
-# Real-world example: Data analysis module
+# Data analysis module
 from datetime import datetime as dt
 from typing import List, Dict
 import json
@@ -161,13 +178,25 @@ def analyze_sales_data(filepath: str) -> Dict[str, float]:
 
 </details>
 
-### 4. Assertion (assert)
+### 4. Assertion (`assert`)
+
+#### Explanation
+
+* Used for **debugging**
+* Stops the program if a condition is false
+* Should not replace proper error handling in production
 
 <details>
 <summary><strong>View contents</strong></summary>
 
 ```python
-# Real-world example: API rate limiting
+assert len(api_key) > 0, "API key cannot be empty"
+```
+
+---
+
+```python
+# API rate limiting
 def make_api_request(api_key: str, requests_made: int, rate_limit: int = 100) -> None:
     """
     Makes an API request with rate limit validation.
@@ -190,13 +219,27 @@ except AssertionError as e:
 
 </details>
 
-### 5. Async Programming (async, await)
+### 5. Async Programming (`async`, `await`)
+
+#### Explanation
+
+* Used for **non-blocking**, concurrent tasks
+* Common in networking, APIs, and I/O-heavy programs
 
 <details>
 <summary><strong>View contents</strong></summary>
 
 ```python
-# Real-world example: Concurrent web scraping
+async def fetch_product_price(session, url):
+    async with session.get(url) as response:
+        data = await response.json()
+        return data['price']
+```
+
+---
+
+```python
+# Concurrent web scraping
 import asyncio
 import aiohttp
 from typing import List
@@ -230,13 +273,18 @@ async def compare_prices(product_urls: List[str]) -> Dict[str, float]:
 
 </details>
 
-### 6. Control Flow (if, elif, else, for, while, break, continue)
+### 6. Control Flow (`if`, `elif`, `else`, `for`, `while`, `break`, `continue`)
+
+#### Explanation
+
+* Control the order in which code runs
+* Decide **what**, **when**, and **how many times** code executes
 
 <details>
 <summary><strong>View contents</strong></summary>
 
 ```python
-# Real-world example: Payment processing system
+# Payment processing system
 def process_payment(amount: float, payment_method: str, balance: float) -> str:
     """
     Processes a payment transaction.
@@ -277,13 +325,27 @@ def process_orders(orders: List[Dict]) -> None:
 
 </details>
 
-### 7. Function Definition (def, return, lambda)
+### 7. Function Definition (`def`, `return`, `lambda`)
+
+#### Explanation
+
+* `def` defines a function
+* `return` sends a value back
+* `lambda` creates short, anonymous functions
 
 <details>
 <summary><strong>View contents</strong></summary>
 
 ```python
-# Real-world example: Tax calculation system
+tax_rates = {
+    'USA': lambda x: x * 0.22 if x <= 89075 else x * 0.24
+}
+```
+
+---
+
+```python
+# Tax calculation system
 def calculate_tax(income: float, country: str) -> float:
     """
     Calculates income tax based on country's tax brackets.
@@ -317,13 +379,31 @@ total_usd = sum(map(convert_to_usd, transactions))  # 495.0
 
 </details>
 
-### 8. Exception Handling (try, except, finally, raise)
+### 8. Exception Handling (`try`, `except`, `finally`, `raise`)
+
+#### Explanation
+
+* Prevents program crashes
+* Allows graceful error handling
+* `finally` always runs
+* `raise` throws an error manually
 
 <details>
 <summary><strong>View contents</strong></summary>
 
 ```python
-# Real-world example: File upload system
+try:
+    file = open(filepath)
+except FileNotFoundError:
+    print("File not found")
+finally:
+    print("Cleanup complete")
+```
+
+---
+
+```python
+# File upload system
 import os
 from typing import Optional
 
@@ -379,13 +459,18 @@ result = upload_file('large_video.mp4', max_size_mb=5)
 
 </details>
 
-### 9. Scope Keywords (global, nonlocal)
+### 9. Scope Keywords (`global`, `nonlocal`)
+
+#### Explanation
+
+* `global` modifies variables outside functions
+* `nonlocal` modifies variables in enclosing functions
 
 <details>
 <summary><strong>View contents</strong></summary>
 
 ```python
-# Real-world example: Application configuration manager
+# Application configuration manager
 app_config = {
     'debug_mode': False,
     'api_timeout': 30
@@ -430,13 +515,25 @@ log("Debugging connection issues")      # [DEBUG] Debugging connection issues
 
 </details>
 
-### 10. Context Manager (with)
+### 10. Context Manager (`with`)
+
+#### Explanation
+
+* Automatically handles setup and cleanup
+* Commonly used for files, databases, and locks
 
 <details>
 <summary><strong>View contents</strong></summary>
 
 ```python
-# Real-world example: Database transaction manager
+with open('data.txt') as file:
+    content = file.read()
+```
+
+---
+
+```python
+# Database transaction manager
 from contextlib import contextmanager
 from typing import Generator
 
@@ -472,13 +569,26 @@ class MockDB:
 
 </details>
 
-### 11. Generator (yield)
+### 11. Generator (`yield`)
+
+#### Explanation
+
+* Produces values one at a time
+* Saves memory for large datasets
 
 <details>
 <summary><strong>View contents</strong></summary>
 
 ```python
-# Real-world example: Log file processor
+def read_large_log_file(filepath):
+    for line in open(filepath):
+        yield line
+```
+
+---
+
+```python
+# Log file processor
 from typing import Generator
 
 def read_large_log_file(filepath: str, chunk_size: int = 1000) -> Generator[str, None, None]:
@@ -517,6 +627,69 @@ def find_errors_in_logs(log_file: str) -> None:
 ```
 
 </details>
+
+### 12. `class`
+
+* Defines a class.
+
+```python
+class User:
+    pass
+```
+
+---
+
+### 13. `pass`
+
+* Placeholder where a statement is required.
+
+```python
+if condition:
+    pass
+```
+
+---
+
+### 14. `del`
+
+* Deletes a variable or object.
+
+```python
+del user_data
+```
+
+---
+
+### 15. `in`
+
+* Checks membership.
+
+```python
+if 'admin' in roles:
+    print("Access granted")
+```
+
+---
+
+### 16. `match` / `case` (Python 3.10+)
+
+```python
+match status_code:
+    case 200:
+        print("Success")
+    case 404:
+        print("Not Found")
+```
+
+---
+
+### 17. `yield from`
+
+* Delegates to another generator.
+
+```python
+yield from other_generator()
+```
 
 </details>
 
