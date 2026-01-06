@@ -2,285 +2,527 @@
 
 [Python Playground](https://www.programiz.com/python-programming/online-compiler/)
 
-## Hello World
+Python is a **high-level, interpreted, dynamically-typed** programming language created by Guido van Rossum in 1991.
+
+**Key Characteristics:**
+
+1. **Interpreted**: Code runs line-by-line (like reading a recipe step-by-step)
+2. **Dynamically Typed**: Variables don't need explicit type declaration and variable types determined at runtime (flexible but requires care)
+3. **Object-Oriented**: Everything is an object (even integers and functions)
+4. **Cross-Platform**: Write once, run anywhere (Windows, macOS, Linux)
+5. **Multi-paradigm**: Supports procedural, functional, and OOP styles
+
+## Quick Start
+
+### Hello World
 
 <details>
-<summary>View codes</summary>
+<summary><strong>View contents</strong></summary>
 
-```py
+```python
 def greeting(name: str) -> None:
-    '''Takes in a string name, prints greeting message'''
-    print(f"Hello, {name}") # print greeting
+    """
+    Prints a personalized greeting message.
+    
+    Args:
+        name: The name to greet.
+        
+    Real-world use: This pattern is used in email systems, chatbots,
+    and customer service applications.
+    """
+    print(f"Hello, {name}!")
 
 if __name__ == '__main__':
-    greeting('Bangladesh')
+    # The if __name__ == '__main__' pattern ensures code only runs
+    # when the script is executed directly, not when imported
+    greeting('Bangladesh')  # Output: Hello, Bangladesh!
 ```
+
+**Key Concepts**:
+- `if __name__ == '__main__':` ensures code runs only when script is executed directly, not when imported
+- Type hints (`str`, `-> None`) are optional but recommended for clarity
+- Docstrings use triple quotes for documentation
     
 </details>
 
-## Reserved Words (Keywords)
+### Execution Model
+
+```python
+# Script execution
+python script.py
+
+# Interactive mode
+python
+>>> print("Hello")
+
+# Module execution
+python -m http.server 8000
+```
+
+---
+
+## Python Keywords
+
+Python has 35 reserved keywords that cannot be used as variable names.
 
 <details>
-<summary>View details</summary>
-
-1. False
-2. None
-3. True
-
-```py
-is_valid = True
-is_old = False
-val = None
-```
-
-4. and
-5. or
-6. not
-
-```py
-a = True
-b = False
-
-print(a and b) # False
-print(a or b) # True
-print(not a) # False
-```
-
-7. import
-8. from
-9. as
-
-```py
-from math import sqrt as square_root
-
-print(square_root(16)) # 4.0
-```
-
-10. assert
-
-```py
-# assert is used to check if a condition is True.
-# If it's not, it raises an AssertionError with an optional error message.
-
-x = 5
-assert x > 0, "x must be positive"
-```
-
-11. async
-12. await
-13. def
-
-```py
-# async is used to define a coroutine function, which can be paused and resumed.
-# await is used to suspend execution of an async function until the result is available.
-
-import asyncio
-
-async def example():
-  await asyncio.sleep(1)
-  print("Hello")
-
-asyncio.run(example())
-```
-
-14. break
-15. continue
-16. for
-17. if
-18. elif
-19. else
-
-```py
-for i in range(10):
-  if i % 2 == 0:
-    print("even:", i)
-  elif i == 3:
-    continue
-  elif i == 9:
-    break
-  else:
-    print("odd:", i)
-
-# Outputs:
-# even: 0
-# odd: 1
-# even: 2
-# even: 4
-# odd: 5
-# even: 6
-# odd: 7
-# even: 8
-```
-
-20. class
-
-```py
-class MyClass:
-  def __init__(self, x):
-    self.x = x
-
-mc = MyClass(10)
-```
-
-21. del
-
-```py
-# del is used to delete items from lists, slices of lists, variables, or even attributes from objects.
-
-my_list = [1, 2, 3]
-my_dict = {"name": "Ali", "age": 20}
-
-del my_list[0]
-del my_dict["name"]
-
-print(my_list) # [2, 3]
-print(my_dict) # {age: 20}
-```
-
-22. except
-23. finally
-
-```py
-# except is used in exception handling to catch and handle exceptions.
-# It specifies one or more exception types that the except block will handle.
-
-try:
-  f = open("my_file.txt")
-except FileNotFoundError:
-  print("File not found")
-finally:
-  # Ensure the file is always closed, even if an exception occurs
-  f.close()
-```
-
-24. global
-
-```py
-# global is used inside functions to declare that a variable is global, meaning it belongs to the global scope.
-
-x = 10
-
-def my_func():
-  global x
-  x = 20
-
-my_func()
-print(x) # 20
-```
-
-25. in
-
-```py
-# in is used to check if a value exists in a sequence such as a list, tuple, string or dictionary.
-
-my_list = [1, 2, 3]
-my_tuple = (1, 2, 3)
-my_str = "Hello"
-my_dict = {"a": 1}
-
-print(3 in my_list) # True
-print(2 in my_tuple) # True
-print("h" in my_str) # False
-print("a" in my_dict) # True
-```
-
-26. is
-
-```py
-# is is used to test if two variables refer to the same object in memory.
-x = [1, 2]
-y = [1, 2]
-z = True
-
-print(x is y) # False
-print(z is True) # True
-```
-
-27. lambda
-
-```py
-# lambda is used to create small anonymous functions.
-
-square = lambda x: x * x
-print(square(5)) # 25
-```
-
-28. nonlocal
-
-```py
-# nonlocal is used inside nested functions to declare that a variable belongs to an outer (but not global) scope.
-
-def outer_func():
-  x = 10
-  def inner_func():
-    nonlocal x
-    x = 20
-  inner_func()
-  print(x) # 20
-outer_func()
-```
-
-29. pass
-
-```py
-# pass is a null operation. It is used when a statement is required syntactically
-# but you do not want any command or code to execute.
-
-if 10 > 5:
-  pass
-```
-
-30. raise
-31. return
-
-```py
-# raise is used to raise an exception manually.
-
-def check_positive(x):
-  if x < 0:
-    raise ValueError("x should be a positive number")
-  return x
-
-check_positive(10)
-check_positive(-1)
-```
-
-32. while
-
-```py
-i = 0
-while i < 5:
-    print(i)
-    i += 1
-```
-
-33. with
-
-```py
-# with is used to simplify exception handling by ensuring that clean-up code is executed, even if an error occurs.
-
-with open("myfile.txt", "r") as file:
-  data = file.read()
-  print(data)
-```
-
-34. yield
-
-```py
-# yield is used inside a function like a return statement but it returns a generator.
-#  a generator is a special type of iterator that allows you to iterate over a sequence of values lazily,
-# generating values on-the-fly rather than storing them in memory all at once.
-
-def generator():
-  for i in range(5):
-    yield i
-
-gen = generator()
-for value in gen:
-  print(value)
+<summary><strong>View contents</strong></summary>
+
+### 1. Boolean Keywords (True, False, None)
+
+<details>
+<summary><strong>View contents</strong></summary>
+
+```python
+# Real-world example: User authentication system
+def authenticate_user(username: str, password: str) -> bool:
+    """
+    Authenticates a user login attempt.
+    
+    Returns:
+        True if authentication succeeds, False otherwise.
+    """
+    stored_password = get_password_from_db(username)  # Simulated
+    
+    if stored_password is None:
+        return False  # User doesn't exist
+    
+    return password == stored_password
+
+# Usage in a login system
+login_successful = authenticate_user('john_doe', 'secret123')
+if login_successful:
+    print("Access granted")
+else:
+    print("Access denied")
 ```
 
 </details>
+
+### 2. Logical Operators (and, or, not)
+
+<details>
+<summary><strong>View contents</strong></summary>
+
+```python
+# Real-world example: E-commerce discount eligibility
+def can_apply_discount(user_age: int, is_member: bool, cart_total: float) -> bool:
+    """
+    Determines if a user qualifies for a discount.
+    
+    Discount rules:
+    - Senior citizens (65+) OR premium members
+    - AND cart total must be over $50
+    """
+    is_senior = user_age >= 65
+    qualifies_for_discount = (is_senior or is_member) and cart_total > 50
+    
+    return qualifies_for_discount
+
+# Test cases
+print(can_apply_discount(70, False, 60))   # True (senior, enough spending)
+print(can_apply_discount(30, True, 60))    # True (member, enough spending)
+print(can_apply_discount(30, False, 60))   # False (not qualified)
+print(can_apply_discount(70, True, 30))    # False (not enough spending)
+```
+
+</details>
+
+### 3. Import Keywords (import, from, as)
+
+<details>
+<summary><strong>View contents</strong></summary>
+
+```python
+# Real-world example: Data analysis module
+from datetime import datetime as dt
+from typing import List, Dict
+import json
+
+def analyze_sales_data(filepath: str) -> Dict[str, float]:
+    """
+    Analyzes sales data from a JSON file.
+    
+    Real-world use: Business intelligence dashboards use this pattern
+    to import necessary libraries and process data.
+    """
+    with open(filepath, 'r') as file:
+        sales_data = json.load(file)
+    
+    total_revenue = sum(item['price'] for item in sales_data)
+    average_sale = total_revenue / len(sales_data)
+    
+    return {
+        'total_revenue': total_revenue,
+        'average_sale': average_sale,
+        'analysis_date': dt.now().strftime('%Y-%m-%d')
+    }
+```
+
+</details>
+
+### 4. Assertion (assert)
+
+<details>
+<summary><strong>View contents</strong></summary>
+
+```python
+# Real-world example: API rate limiting
+def make_api_request(api_key: str, requests_made: int, rate_limit: int = 100) -> None:
+    """
+    Makes an API request with rate limit validation.
+    
+    Real-world use: Services like Twitter API, Google Maps API use
+    assertions for debugging and validation.
+    """
+    assert len(api_key) > 0, "API key cannot be empty"
+    assert requests_made < rate_limit, f"Rate limit exceeded: {requests_made}/{rate_limit}"
+    
+    print(f"Request successful! {requests_made + 1}/{rate_limit} requests used")
+
+# Usage
+try:
+    make_api_request('abc123xyz', 50)     # Works fine
+    make_api_request('abc123xyz', 100)    # Raises AssertionError
+except AssertionError as e:
+    print(f"Error: {e}")
+```
+
+</details>
+
+### 5. Async Programming (async, await)
+
+<details>
+<summary><strong>View contents</strong></summary>
+
+```python
+# Real-world example: Concurrent web scraping
+import asyncio
+import aiohttp
+from typing import List
+
+async def fetch_product_price(session: aiohttp.ClientSession, url: str) -> float:
+    """
+    Fetches product price from an e-commerce website.
+    
+    Real-world use: Price comparison websites like PriceGrabber
+    use async operations to fetch prices from multiple stores simultaneously.
+    """
+    async with session.get(url) as response:
+        data = await response.json()
+        return data['price']
+
+async def compare_prices(product_urls: List[str]) -> Dict[str, float]:
+    """Fetches prices from multiple websites concurrently."""
+    async with aiohttp.ClientSession() as session:
+        tasks = [fetch_product_price(session, url) for url in product_urls]
+        prices = await asyncio.gather(*tasks)
+        
+        return {url: price for url, price in zip(product_urls, prices)}
+
+# Usage (in async context)
+# prices = asyncio.run(compare_prices([
+#     'https://store1.com/api/product/123',
+#     'https://store2.com/api/product/123',
+#     'https://store3.com/api/product/123'
+# ]))
+```
+
+</details>
+
+### 6. Control Flow (if, elif, else, for, while, break, continue)
+
+<details>
+<summary><strong>View contents</strong></summary>
+
+```python
+# Real-world example: Payment processing system
+def process_payment(amount: float, payment_method: str, balance: float) -> str:
+    """
+    Processes a payment transaction.
+    
+    Real-world use: Payment gateways like Stripe, PayPal use
+    similar logic for transaction processing.
+    """
+    if amount <= 0:
+        return "Invalid amount"
+    elif payment_method == "credit_card":
+        return process_credit_card(amount)
+    elif payment_method == "debit_card":
+        if balance < amount:
+            return "Insufficient funds"
+        return process_debit_card(amount, balance)
+    elif payment_method == "paypal":
+        return process_paypal(amount)
+    else:
+        return "Payment method not supported"
+
+def process_orders(orders: List[Dict]) -> None:
+    """
+    Processes multiple orders with priority handling.
+    
+    Real-world use: Fulfillment centers like Amazon warehouses
+    use similar logic for order processing.
+    """
+    for order in orders:
+        if order['priority'] == 'urgent':
+            print(f"Processing urgent order: {order['id']}")
+            continue  # Skip to next iteration
+        
+        if order['status'] == 'cancelled':
+            break  # Stop processing
+        
+        print(f"Processing standard order: {order['id']}")
+```
+
+</details>
+
+### 7. Function Definition (def, return, lambda)
+
+<details>
+<summary><strong>View contents</strong></summary>
+
+```python
+# Real-world example: Tax calculation system
+def calculate_tax(income: float, country: str) -> float:
+    """
+    Calculates income tax based on country's tax brackets.
+    
+    Real-world use: Payroll systems like ADP use similar functions.
+    """
+    tax_rates = {
+        'USA': lambda x: x * 0.22 if x <= 89075 else x * 0.24,
+        'UK': lambda x: x * 0.20 if x <= 50000 else x * 0.40,
+        'Germany': lambda x: x * 0.14 if x <= 57918 else x * 0.42
+    }
+    
+    calculate = tax_rates.get(country, lambda x: x * 0.20)  # Default 20%
+    return calculate(income)
+
+# Usage
+print(calculate_tax(60000, 'USA'))     # Output: 14400.0
+print(calculate_tax(60000, 'UK'))      # Output: 24000.0
+
+# Lambda in data transformation
+transactions = [
+    {'amount': 100, 'currency': 'USD'},
+    {'amount': 200, 'currency': 'EUR'},
+    {'amount': 150, 'currency': 'USD'}
+]
+
+# Convert EUR to USD (1 EUR = 1.1 USD)
+convert_to_usd = lambda t: t['amount'] * 1.1 if t['currency'] == 'EUR' else t['amount']
+total_usd = sum(map(convert_to_usd, transactions))  # 495.0
+```
+
+</details>
+
+### 8. Exception Handling (try, except, finally, raise)
+
+<details>
+<summary><strong>View contents</strong></summary>
+
+```python
+# Real-world example: File upload system
+import os
+from typing import Optional
+
+class FileUploadError(Exception):
+    """Custom exception for file upload failures."""
+    pass
+
+def upload_file(filepath: str, max_size_mb: int = 10) -> Optional[str]:
+    """
+    Uploads a file with size validation and error handling.
+    
+    Real-world use: Cloud storage services like Dropbox, Google Drive
+    use similar patterns for file uploads.
+    """
+    file_handle = None
+    
+    try:
+        # Check if file exists
+        if not os.path.exists(filepath):
+            raise FileNotFoundError(f"File not found: {filepath}")
+        
+        # Check file size
+        file_size_mb = os.path.getsize(filepath) / (1024 * 1024)
+        if file_size_mb > max_size_mb:
+            raise FileUploadError(
+                f"File too large: {file_size_mb:.2f}MB (max: {max_size_mb}MB)"
+            )
+        
+        # Simulate upload
+        file_handle = open(filepath, 'rb')
+        # upload_to_cloud(file_handle)  # Simulated
+        
+        return f"Upload successful: {filepath}"
+        
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
+        return None
+    except FileUploadError as e:
+        print(f"Upload failed: {e}")
+        return None
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+        raise  # Re-raise unexpected errors
+    finally:
+        # Always close the file handle
+        if file_handle:
+            file_handle.close()
+            print("File handle closed")
+
+# Usage
+result = upload_file('large_video.mp4', max_size_mb=5)
+```
+
+</details>
+
+### 9. Scope Keywords (global, nonlocal)
+
+<details>
+<summary><strong>View contents</strong></summary>
+
+```python
+# Real-world example: Application configuration manager
+app_config = {
+    'debug_mode': False,
+    'api_timeout': 30
+}
+
+def enable_debug_mode() -> None:
+    """
+    Enables debug mode globally.
+    
+    Real-world use: Web frameworks like Django, Flask use global
+    configuration for debugging during development.
+    """
+    global app_config
+    app_config['debug_mode'] = True
+    print("Debug mode enabled globally")
+
+def create_logger(log_level: str = 'INFO'):
+    """
+    Creates a logger with nested configuration.
+    
+    Real-world use: Logging systems use nonlocal to manage
+    nested configuration scopes.
+    """
+    current_level = log_level
+    
+    def change_log_level(new_level: str) -> None:
+        nonlocal current_level
+        current_level = new_level
+        print(f"Log level changed to: {current_level}")
+    
+    def log_message(message: str) -> None:
+        print(f"[{current_level}] {message}")
+    
+    return change_log_level, log_message
+
+# Usage
+change_level, log = create_logger('INFO')
+log("Application started")              # [INFO] Application started
+change_level('DEBUG')                    # Log level changed to: DEBUG
+log("Debugging connection issues")      # [DEBUG] Debugging connection issues
+```
+
+</details>
+
+### 10. Context Manager (with)
+
+<details>
+<summary><strong>View contents</strong></summary>
+
+```python
+# Real-world example: Database transaction manager
+from contextlib import contextmanager
+from typing import Generator
+
+@contextmanager
+def database_transaction(db_connection) -> Generator:
+    """
+    Manages database transactions with automatic rollback on error.
+    
+    Real-world use: ORMs like SQLAlchemy use this pattern for
+    transaction management.
+    """
+    try:
+        print("Transaction started")
+        yield db_connection
+        db_connection.commit()
+        print("Transaction committed")
+    except Exception as e:
+        db_connection.rollback()
+        print(f"Transaction rolled back due to: {e}")
+        raise
+    finally:
+        print("Transaction cleanup completed")
+
+# Usage
+class MockDB:
+    def commit(self): pass
+    def rollback(self): pass
+
+# with database_transaction(MockDB()) as db:
+#     db.execute("INSERT INTO users VALUES (...)")
+#     db.execute("UPDATE accounts SET balance = ...")
+```
+
+</details>
+
+### 11. Generator (yield)
+
+<details>
+<summary><strong>View contents</strong></summary>
+
+```python
+# Real-world example: Log file processor
+from typing import Generator
+
+def read_large_log_file(filepath: str, chunk_size: int = 1000) -> Generator[str, None, None]:
+    """
+    Reads a large log file in chunks using a generator.
+    
+    Real-world use: Log analysis tools like Splunk, ELK Stack use
+    generators to process massive log files without loading
+    everything into memory.
+    
+    Memory benefit: Instead of loading a 10GB log file into memory,
+    this processes 1000 lines at a time.
+    """
+    with open(filepath, 'r') as file:
+        lines_buffer = []
+        
+        for line in file:
+            lines_buffer.append(line.strip())
+            
+            if len(lines_buffer) >= chunk_size:
+                yield '\n'.join(lines_buffer)
+                lines_buffer = []
+        
+        # Yield remaining lines
+        if lines_buffer:
+            yield '\n'.join(lines_buffer)
+
+def find_errors_in_logs(log_file: str) -> None:
+    """Processes logs and finds errors efficiently."""
+    error_count = 0
+    
+    for chunk in read_large_log_file(log_file):
+        error_count += chunk.count('ERROR')
+    
+    print(f"Total errors found: {error_count}")
+```
+
+</details>
+
+</details>
+
+</details>
+
+---
 
 ## Built-in functions
 
