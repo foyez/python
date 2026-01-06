@@ -697,6 +697,73 @@ yield from other_generator()
 
 ---
 
+## Type System
+
+In Python everything is an object - this includes `Booleans`, `integers`, `characters`, etc.
+
+Python has a number of built-in types: numerics (e.g., integer), sequences (e.g., list), mappings (e.g., dict), as well as classes, instances and exceptions. All instances of these types are objects.
+
+<details>
+<summary><strong>View contents</strong></summary>
+
+### Dynamic Typing with Type Hints
+
+Python is **dynamically typed** but supports **optional static type hints** (PEP 484).
+
+```python
+# Dynamic typing - type determined at runtime
+x = 5           # int
+x = "hello"     # now str (allowed but not recommended)
+
+# Type hints (enforced by tools like mypy, not runtime)
+def calculate_area(radius: float) -> float:
+    return 3.14159 * radius ** 2
+
+# Type hints for collections
+from typing import List, Dict, Optional, Union, Tuple
+
+users: List[str] = ["Alice", "Bob"]
+config: Dict[str, int] = {"port": 8080, "timeout": 30}
+result: Optional[str] = None  # can be str or None
+value: Union[int, str] = 42   # can be int or str
+coords: Tuple[float, float] = (10.5, 20.3)
+```
+
+### Built-in Types Overview
+
+| Category | Types | Example |
+|----------|-------|---------|
+| **Numeric** | `int`, `float`, `complex` | `42`, `3.14`, `2+3j` |
+| **Sequence** | `list`, `tuple`, `range`, `str` | `[1,2]`, `(1,2)`, `range(5)`, `"text"` |
+| **Set** | `set`, `frozenset` | `{1,2,3}`, `frozenset([1,2])` |
+| **Mapping** | `dict` | `{"key": "value"}` |
+| **Boolean** | `bool` | `True`, `False` |
+| **Binary** | `bytes`, `bytearray`, `memoryview` | `b'hello'`, `bytearray(5)` |
+| **None** | `NoneType` | `None` |
+
+### Type Checking and Conversion
+
+```python
+# Runtime type checking
+type(42)          # <class 'int'>
+isinstance(42, int)  # True
+isinstance("hi", (int, str))  # True (checks multiple types)
+
+# Type conversion
+int("42")         # 42
+float("3.14")     # 3.14
+str(42)           # "42"
+bool(0)           # False (0, None, [], {} are falsy)
+bool(1)           # True
+list("abc")       # ['a', 'b', 'c']
+tuple([1, 2])     # (1, 2)
+set([1, 1, 2])    # {1, 2} (removes duplicates)
+```
+
+</details>
+
+---
+
 ## Built-in functions
 
 <details>
