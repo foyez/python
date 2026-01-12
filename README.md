@@ -2078,3 +2078,7 @@ print(my_set)  # Output: {1, 2, 3, 4, 5}
 ```
 
 </details>
+
+## Resources
+
+- [Python Cheatsheet](https://github.com/gto76/python-cheatsheet)
